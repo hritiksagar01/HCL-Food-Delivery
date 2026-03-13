@@ -1,0 +1,21 @@
+<div class="food-details-page">
+      <a routerLink="/">⬅ Back to Menu</a>
+
+      <app-loading-spinner *ngIf="isLoading()"></app-loading-spinner>
+
+      <div *ngIf="!isLoading() && food()">
+            <h2>{{ food()?.name }}</h2>
+            <img [src]="food()?.imageUrl" [alt]="food()?.name" style="max-width: 300px;">
+            <p>{{ food()?.description }}</p>
+            <h3>Price: ${{ food()?.price }}</h3>
+            <p>Status: {{ food()?.isAvailable ? 'Available' : 'Out of Stock' }}</p>
+
+            <button (click)="addToCart()" [disabled]="!food()?.isAvailable">
+                  Add to Cart
+            </button>
+      </div>
+
+      <div *ngIf="!isLoading() && !food()">
+            <p>Food item not found.</p>
+      </div>
+</div>

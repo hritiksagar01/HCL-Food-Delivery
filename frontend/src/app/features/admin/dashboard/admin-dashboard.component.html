@@ -1,0 +1,75 @@
+<div class="admin-dashboard">
+      <div class="header-actions">
+            <h1>Admin Dashboard</h1>
+            <button (click)="logout()">Logout</button>
+      </div>
+
+      <div class="tabs">
+            <button [class.active]="activeTab === 'orders'" (click)="activeTab = 'orders'">Manage Orders</button>
+            <button [class.active]="activeTab === 'inventory'" (click)="activeTab = 'inventory'">Manage
+                  Inventory</button>
+      </div>
+
+      <div class="panel-container" *ngIf="activeTab === 'orders'">
+            <table>
+                  <thead>
+                        <tr>
+                              <th>Order ID</th>
+                              <th>Customer User ID</th>
+                              <th>Date Assigned</th>
+                              <th>Total</th>
+                              <th>Status Action</th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                        <tr *ngFor="let order of orders">
+                              <td>#{{ order.id }}</td>
+                              <td>User #{{ order.userId || 'Guest' }}</td>
+                              <td>{{ order.createdAt | date:'short' }}</td>
+                              <td style="font-weight: 600; color: #55b351;">${{ order.totalAmount | number:'1.2-2' }}
+                              </td>
+                              <td>
+                                    <select [ngModel]="order.status"
+                                          (ngModelChange)="updateOrderStatus(order.id, $event)">
+                                          <option value="Pending">Pending</option>
+                                          <option value="Preparing">Preparing</option>
+                                          <option value="OutForDelivery">Out for Delivery</option>
+                                          <option value="Delivered">Delivered</option>
+                                    </select>
+                              </td>
+                        </tr>
+                  </tbody>
+            </table>
+      </div>
+
+      <div class="panel-container" *ngIf="activeTab === 'inventory'">
+            <table>
+                  <thead>
+                        <tr>
+                              <th>Image</th>
+                              <th>Item Name</th>
+                              <th>Price</th>
+                              <th>Availability</th>
+                              <th>Quick Actions</th>
+                        </tr>
+                  </thead>
+                  <tbody>
+                        <tr *ngFor="let food of foods">
+                              <td><img [src]="food.imageUrl" [alt]="food.name"></td>
+                              <td style="font-weight: 500;">{{ food.name }}</td>
+                              <td>${{ food.price | number:'1.2-2' }}</td>
+                              <td>
+                                    <span class="availability-badge"
+                                          [ngClass]="food.isAvailable ? 'in-stock' : 'out-of-stock'">
+                                          {{ food.isAvailable ? 'In Stock' : 'Out of Stock' }}
+                                    </span>
+                              </td>
+                              <td>
+                                    <button
+                                          style="background: none; border: none; color: #1890ff; font-weight: 500; cursor: pointer;">Edit</button>
+                              </td>
+                        </tr>
+                  </tbody>
+            </table>
+      </div>
+</div>

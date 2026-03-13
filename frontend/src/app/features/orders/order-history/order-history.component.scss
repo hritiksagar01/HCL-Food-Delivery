@@ -1,0 +1,102 @@
+.order-history-page {
+      padding: 40px 50px;
+      max-width: 1000px;
+      margin: 0 auto;
+
+      h1 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            font-weight: 600;
+      }
+
+      .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+            p {
+                  color: #666;
+                  font-size: 18px;
+            }
+      }
+
+      .table-container {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+            table {
+                  width: 100%;
+                  border-collapse: collapse;
+
+                  thead {
+                        background-color: #f8f9fc;
+
+                        th {
+                              text-align: left;
+                              padding: 18px 25px;
+                              color: #666;
+                              font-weight: 600;
+                              font-size: 14px;
+                              text-transform: uppercase;
+                              letter-spacing: 0.5px;
+                        }
+                  }
+
+                  tbody {
+                        tr {
+                              border-bottom: 1px solid #f0f0f0;
+                              transition: background-color 0.2s;
+
+                              &:last-child {
+                                    border-bottom: none;
+                              }
+
+                              &:hover {
+                                    background-color: #fafbfc;
+                              }
+
+                              td {
+                                    padding: 20px 25px;
+                                    color: #333;
+                                    font-size: 15px;
+
+                                    &.order-id {
+                                          font-weight: 600;
+                                          color: #1a1a1a;
+                                    }
+
+                                    &.amount {
+                                          font-weight: 600;
+                                          color: #55b351;
+                                    }
+
+                                    .status-pill {
+                                          display: inline-block;
+                                          padding: 6px 14px;
+                                          border-radius: 20px;
+                                          font-size: 13px;
+                                          font-weight: 600;
+
+                                          &.pending,
+                                          &.preparing {
+                                                background-color: #fff7e6;
+                                                color: #fa8c16;
+                                          }
+
+                                          &.outfordelivery,
+                                          &.delivered {
+                                                background-color: #e6f7e4;
+                                                color: #55b351;
+                                          }
+                                    }
+                              }
+                        }
+                  }
+            }
+      }
+}

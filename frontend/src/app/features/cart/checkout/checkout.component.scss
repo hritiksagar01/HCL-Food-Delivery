@@ -1,0 +1,106 @@
+.checkout-page {
+      padding: 40px 50px;
+      max-width: 800px;
+      margin: 0 auto;
+
+      h1 {
+            font-size: 32px;
+            color: #1a1a1a;
+            margin-bottom: 30px;
+            font-weight: 600;
+            text-align: center;
+      }
+
+      .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+            border-radius: 12px;
+      }
+
+      .checkout-container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+            .order-summary {
+                  background-color: #f8f9fc;
+                  padding: 20px;
+                  border-radius: 8px;
+                  margin-bottom: 30px;
+                  text-align: center;
+
+                  p {
+                        margin: 0 0 10px;
+                        color: #666;
+                  }
+
+                  h2 {
+                        margin: 0;
+                        font-size: 28px;
+                        color: #55b351;
+                  }
+            }
+
+            .form-group {
+                  margin-bottom: 25px;
+
+                  label {
+                        display: block;
+                        font-size: 14px;
+                        color: #333;
+                        margin-bottom: 8px;
+                        font-weight: 500;
+                  }
+
+                  textarea,
+                  select {
+                        width: 100%;
+                        padding: 14px 16px;
+                        background-color: #f8f9fc;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 6px;
+                        font-size: 15px;
+                        color: #333;
+                        outline: none;
+                        font-family: 'Inter', sans-serif;
+                        transition: all 0.2s;
+
+                        &:focus {
+                              background-color: #fff;
+                              border-color: #55b351;
+                              box-shadow: 0 0 0 2px rgba(85, 179, 81, 0.1);
+                        }
+                  }
+
+                  textarea {
+                        resize: vertical;
+                        min-height: 100px;
+                  }
+            }
+
+            .btn-place-order {
+                  width: 100%;
+                  background-color: #1a1a1a;
+                  color: white;
+                  border: none;
+                  padding: 16px;
+                  font-size: 16px;
+                  font-weight: 600;
+                  border-radius: 6px;
+                  cursor: pointer;
+                  margin-top: 10px;
+                  transition: background-color 0.2s;
+
+                  &:hover:not(:disabled) {
+                        background-color: #333;
+                  }
+
+                  &:disabled {
+                        background-color: #888;
+                        cursor: not-allowed;
+                  }
+            }
+      }
+}

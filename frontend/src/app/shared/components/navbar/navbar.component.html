@@ -1,0 +1,22 @@
+<nav>
+  <div class="brand"><a routerLink="/">Urbee</a></div>
+
+  <div class="nav-right">
+    <a routerLink="/login" class="btn-signin">SIGN IN</a>
+
+    <div class="menu-icon">☰</div>
+
+    <ul>
+      <li><a routerLink="/">Home</a></li>
+      <li><a routerLink="/orders">Orders</a></li>
+      <li>
+        <a routerLink="/cart" class="cart-icon">
+          🛒
+          <span class="badge" *ngIf="cartService.cartCount() > 0">
+            {{ cartService.cartCount() }}
+          </span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

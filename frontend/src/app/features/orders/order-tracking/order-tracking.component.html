@@ -1,0 +1,47 @@
+<div class="tracking-page">
+      <h1>Live Order Tracking</h1>
+
+      <div class="empty-state" *ngIf="!orderService.activeOrder()">
+            <p>You have no active orders in progress right now.</p>
+            <a routerLink="/">Go check out our delicious menu!</a>
+      </div>
+
+      <div class="tracking-container" *ngIf="orderService.activeOrder() as orderData">
+
+            <div class="order-header">
+                  <h2>Order #{{ orderData.order.id }}</h2>
+                  <span class="status-badge">{{ orderData.order.status }}</span>
+            </div>
+
+            <div class="progress-bar">
+                  <ul>
+                        <li
+                              [class.active]="orderData.order.status === 'Pending' || orderData.order.status === 'Preparing' || orderData.order.status === 'OutForDelivery' || orderData.order.status === 'Delivered'">
+                              Pending</li>
+                        <li
+                              [class.active]="orderData.order.status === 'Preparing' || orderData.order.status === 'OutForDelivery' || orderData.order.status === 'Delivered'">
+                              Preparing</li>
+                        <li
+                              [class.active]="orderData.order.status === 'OutForDelivery' || orderData.order.status === 'Delivered'">
+                              Out for Delivery</li>
+                        <li [class.active]="orderData.order.status === 'Delivered'">Delivered</li>
+                  </ul>
+            </div>
+
+            <div class="order-details">
+                  <h3>Items Ordered:</h3>
+                  <ul>
+                        <li *ngFor="let item of orderData.items">
+                              <span>Item ID #{{ item.foodItemId }}</span>
+                              <span>Qty: {{ item.quantity }}</span>
+                        </li>
+                  </ul>
+
+                  <div class="total-row">
+                        <h3>Total Paid:</h3>
+                        <span class="price">${{ orderData.order.totalAmount | number:'1.2-2' }}</span>
+                  </div>
+            </div>
+
+      </div>
+</div>

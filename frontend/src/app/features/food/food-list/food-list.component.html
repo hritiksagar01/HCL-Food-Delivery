@@ -1,0 +1,24 @@
+<div class="food-list-page">
+      <div class="hero-section">
+            <h1>Discover restaurant <br>quality food.</h1>
+            <p class="subtitle">Order your favorite meals and have them delivered directly to your doorstep with our
+                  fast and reliable delivery service.</p>
+      </div>
+
+      <div class="menu-section">
+            <app-category-filter [categories]="categories()" [selectedCategoryId]="selectedCategoryId()"
+                  (categorySelected)="onCategorySelect($event)">
+            </app-category-filter>
+
+            <app-loading-spinner *ngIf="isLoading()"></app-loading-spinner>
+
+            <div class="food-grid" *ngIf="!isLoading()">
+                  <app-food-card *ngFor="let food of foods()" [food]="food" (addToCart)="onAddToCart($event)">
+                  </app-food-card>
+
+                  <div class="empty-state" *ngIf="foods().length === 0">
+                        <p>No food items found in this category.</p>
+                  </div>
+            </div>
+      </div>
+</div>

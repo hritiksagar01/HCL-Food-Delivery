@@ -1,0 +1,201 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  background-color: #f7f7f7; // Base background representing the dark overlay out of focus
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-modal {
+  display: flex;
+  background: white;
+  width: 900px;
+  max-width: 95%;
+  min-height: 550px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  overflow: hidden;
+
+  .login-form-container {
+    flex: 1;
+    padding: 60px 50px;
+    display: flex;
+    flex-direction: column;
+
+    .brand {
+      font-size: 32px;
+      font-weight: 600;
+      color: #1a1a1a;
+      margin-bottom: 30px;
+      font-family: 'Comic Sans MS', 'Inter', sans-serif; // Approximation of the 'Urbee' font
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      color: #1f1f1f;
+      margin: 0 0 10px 0;
+    }
+
+    .subtitle {
+      color: #8c8c8c;
+      font-size: 14px;
+      margin-bottom: 40px;
+    }
+
+    .form-group {
+      margin-bottom: 25px;
+
+      label {
+        display: block;
+        font-size: 12px;
+        color: #b0b0b0;
+        margin-bottom: 8px;
+      }
+
+      .input-wrapper {
+        position: relative;
+        
+        input {
+          width: 100%;
+          padding: 14px 16px;
+          background-color: #f8f9fc;
+          border: 1px solid transparent;
+          border-radius: 6px;
+          font-size: 14px;
+          color: #333;
+          outline: none;
+          transition: all 0.2s;
+
+          &:focus {
+            background-color: #fff;
+            border-color: #e0e0e0;
+            box-shadow: 0 0 0 2px rgba(85, 179, 81, 0.1);
+          }
+
+          &::placeholder {
+            color: #d1d1d1;
+          }
+        }
+        
+        .success-icon {
+          position: absolute;
+          right: 16px;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #55b351;
+          background-color: #e6f7e4;
+          border-radius: 50%;
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+        }
+      }
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      font-size: 13px;
+
+      .remember {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        color: #666;
+        cursor: pointer;
+
+        input[type="checkbox"] {
+          appearance: none;
+          width: 18px;
+          height: 18px;
+          border: 2px solid #55b351;
+          border-radius: 50%;
+          background-color: #55b351;
+          position: relative;
+          cursor: pointer;
+
+          &::after {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 4px;
+            height: 8px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+          }
+        }
+      }
+
+      .forgot {
+        color: #b0b0b0;
+        text-decoration: none;
+        
+        &:hover {
+          color: #55b351;
+        }
+      }
+    }
+
+    .btn-submit {
+      background-color: #55b351;
+      color: white;
+      border: none;
+      padding: 14px 30px;
+      font-size: 15px;
+      font-weight: 500;
+      border-radius: 4px;
+      cursor: pointer;
+      align-self: flex-start;
+      margin-bottom: 30px;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: #4da049;
+      }
+    }
+
+    .signup-link {
+      font-size: 13px;
+      color: #b0b0b0;
+      margin-top: auto;
+      
+      a {
+        color: #55b351;
+        text-decoration: none;
+        font-weight: 500;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .login-image-container {
+    flex: 1.1;
+    position: relative;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(to right, rgba(255,255,255,0.05) 0%, rgba(0,0,0,0) 20%);
+    }
+  }
+}
+
+// Ensure the main layout removes padding for the login page specifically.
+// We'll wrap the inner content so it fills the screen.

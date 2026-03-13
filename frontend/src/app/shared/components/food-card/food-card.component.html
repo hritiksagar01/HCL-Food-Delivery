@@ -1,0 +1,21 @@
+<div class="food-card">
+      <div class="image-wrapper">
+            <img [src]="food.imageUrl" [alt]="food.name">
+      </div>
+
+      <div class="content">
+            <div class="header">
+                  <h3>{{ food.name }}</h3>
+                  <span class="price">${{ food.price | number:'1.2-2' }}</span>
+            </div>
+
+            <p>{{ food.description }}</p>
+
+            <div class="actions">
+                  <a [routerLink]="['/food', food.id]">View Details</a>
+                  <button (click)="onAddToCart()" [disabled]="!food.isAvailable">
+                        {{ food.isAvailable ? 'Add to Cart' : 'Out of Stock' }}
+                  </button>
+            </div>
+      </div>
+</div>
